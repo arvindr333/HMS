@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Booking{% endblock %}
+
+{% block content %}
+<div class="booking-container">
+    <h2>Book an Appointment</h2>
+    
+    <form method="post" class="booking-form">
+        {% csrf_token %}
+        
+        {% if form %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        {% else %}
+            <p style="text-align: center; color: red;">
+                Form variable missing. Check your View context!
+            </p>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
